@@ -1,6 +1,7 @@
 "use client";
 
 import { HeroUIProvider } from "@heroui/react";
+import { Suspense } from "react";
 import MatrixScreen from "../presentation/features/matrix/MatrixScreen";
 
 
@@ -12,7 +13,10 @@ export default function Home() {
           A Peculiar Tetris Piece
         </h1>
 
-        <MatrixScreen />
+        <Suspense fallback={<div>Cargando...</div>}>
+          <MatrixScreen />
+        </Suspense>
+
 
       </main>
     </HeroUIProvider>

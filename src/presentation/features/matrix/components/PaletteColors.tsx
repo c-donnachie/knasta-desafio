@@ -18,7 +18,7 @@ export const PaletteColors: React.FC<PaletteColorsProps> = ({ colors, selectedCo
                         <motion.div
                             layoutId="indicator"
                             className="absolute inset-0 border-white border-2 rounded-md"
-                            transition={{ type: "spring", stiffness: 500, damping: 10 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 40 }}
                         />
                     )}
                 </li>
