@@ -9,14 +9,14 @@ export const CardOptions: React.FC<CardOptionsProps> = ({ resetMatrix, isModifie
                 <Snippet
                     tooltipProps={{
                         color: "foreground",
-                        content: "Copiar link",
+                        content: "Copy link",
                         placement: "top",
                     }}
                     onCopy={handleShareUrl}
                     symbol="#"
                     variant="bordered"
                 >
-                    Compartir link
+                    Share link
                 </Snippet>
             )}
         </>
