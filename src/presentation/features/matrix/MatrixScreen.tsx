@@ -1,6 +1,7 @@
 "use client";
 
 import { handleShareUrl } from '@/presentation/utils/handleShareParams';
+import { Button } from '@heroui/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { CardOptions } from './components/CardOptions';
@@ -8,6 +9,7 @@ import { Matrix } from './components/Matrix';
 import { PaletteColors } from './components/PaletteColors';
 import { RotationButtons } from './components/RotationButtons';
 import { useMatrix } from './hooks/useMatrix';
+import { generateRandomMatrix } from './utils/generaterandomMatrix';
 import { parseMatrix } from './utils/parseMatrix.';
 
 const SIZE = 5;
@@ -24,6 +26,18 @@ const MatrixScreen = () => {
 
     // ref para evitar actualizaciones innecesarias en la URL
     const lastUrlState = React.useRef<string | null>(null);
+
+
+    // todo: sacar de aca y agregar useCallback
+    const handleGenerateButton = () => {
+        const newMatrix = generateRandomMatrix(SIZE);
+        setMatrix(newMatrix);
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                rotateMatrix('90');
+            }, i * 100);
+        }
+    };
 
     React.useEffect(() => {
         const params = searchParams.get("matrix");
@@ -66,7 +80,16 @@ const MatrixScreen = () => {
 
     return (
         <div className="grid grid-cols-3 place-items-center gap-10">
-            <section />
+
+            {/* todo: llevar a un componente */}
+            <section >
+                <Button
+                    onPress={handleGenerateButton}
+                >
+                    Random 🎲
+                </Button>
+            </section>
+
             <section className='flex flex-col items-center gap-4'>
                 <PaletteColors
                     colors={COLORS}

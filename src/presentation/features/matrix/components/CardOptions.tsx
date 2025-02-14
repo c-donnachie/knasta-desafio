@@ -4,7 +4,7 @@ import { CardOptionsProps } from '../types/CardOptionsProps.types';
 export const CardOptions: React.FC<CardOptionsProps> = ({ resetMatrix, isModified, handleShareUrl }) => {
     return (
         <>
-            <Button onPress={resetMatrix}>Reset</Button>
+            <Button onPress={resetMatrix}>Reset 🗑️</Button>
             {isModified && (
                 <Snippet
                     tooltipProps={{
